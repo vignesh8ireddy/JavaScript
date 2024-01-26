@@ -60,17 +60,20 @@ console.log(getName);
 
 
 output: 
-Hello
-undefined
-ƒ getName() {
+index.js:8 Hello
+index.js:2 undefined
+index.js:3 ƒ sayHello() {
     console.log("Hello");
 }
-Hello
-7
-ƒ getName() {
+index.js:4 undefined
+index.js:8 Hello
+index.js:16 7
+index.js:17 ƒ sayHello() {
     console.log("Hello");
 }
-
+index.js:18 ()=> {//arrow function
+    console.log("Hi");
+}//Hoisting in javascript
 Try to explain the resulted output using the concept of Execution context of javascript
 
 */
