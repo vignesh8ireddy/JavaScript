@@ -42,6 +42,22 @@ likewise square4 = square(4); and square4 = 16;
 
 All this is done using call stack of javascript;
 
+Code snippet
+------------
 
+getName();//calling function before it's definition is compiled.
+console.log(x);//calling a variable without even initializing it.
+
+var x = 7;
+
+function getName() {
+    console.log("Hello");
+}
+
+output: 
+Hello
+undefined
+
+Try to explain the resulted output using the concept of Execution context of javascript
 
 */
