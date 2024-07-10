@@ -1,5 +1,4 @@
 
-
 * **Scope** in Javascript is directly related to **Lexical Environment**.
 
 * Let's observe the below examples:
