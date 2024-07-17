@@ -7,6 +7,7 @@
 - Promise.race()
 - Promise.any()
 
+
 💡 One simply doesn't use async/await without knowing promises!
 
 ### Promise.all()
