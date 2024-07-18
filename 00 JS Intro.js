@@ -1,7 +1,6 @@
 /*
 Everything in Javascript happens inside an Execution Context
 
-
 Execution context has two components: 
  1. Memory component(variable environment):  Variables and functions are stored as key-value pairs
  2. Code component(thread of execution): where code is executed one line at a time.
