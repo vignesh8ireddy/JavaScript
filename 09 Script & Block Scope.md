@@ -56,7 +56,6 @@ What is **Shadowing**?
     }
     console.log(b); // 100, Both b's are in separate spaces (one in Block(20) and one in Script(another arbitrary mem space)(100)). Same is also true for *const* declarations.
     ```
-    ![Block Scope Explaination](/assets/scope.jpg "Lexical Scope")
 
 
 * Same logic is true even for **functions**
@@ -88,6 +87,46 @@ What is **Illegal Shadowing**?
             var a = 20;
         }
         ```
+
+**Global Object**
+
+The global object is an object that provides the environment for JavaScript code execution. In browsers, the global object is the window object (or globalThis for a more environment-agnostic reference).
+
+Properties of the Global Object:
+
+* Variables declared using *var* in the global scope become properties of the global object.
+* Functions declared in the global scope also become properties of the global object.
+* The global object contains built-in properties and methods like console, setTimeout, Math, etc.
+    ```javascript
+    var a = 10; // Global variable
+    console.log(window.a); // 10
+    console.log(globalThis.a); // 10
+    ```
+
+    ```javascript
+    function greet() {
+        console.log("Hello!");
+    }
+    console.log(window.greet); // Function definition
+    ```
+**Script Object**
+
+The script object is specific to the ES6 *let* and *const* declarations in the global scope. These variables do not become properties of the global object. Instead, they are bound to the script itself.
+
+Variables declared using let or const are not added to the global object:
+
+```javascript
+let b = 20;
+console.log(window.b); // undefined
+console.log(globalThis.b); // undefined
+```
+* This behavior avoids polluting the global object and minimizes the risk of naming conflicts.
+
+* The distinction exists to reduce unintended side effects:
+
+    > Pollution of Global Object: Using var in the global scope adds unnecessary properties to the global object, increasing the likelihood of name clashes. let and const avoid this.
+
+    > Predictable Behavior: Since let and const are block-scoped and not attached to the global object, they behave more predictably and adhere to modern scoping rules.
 
 
 <hr>

@@ -122,13 +122,13 @@ const cart = ["shoes", "pants", "kurta"];
 createOrder(cart)
   .then(function (orderId) {
     // ✅ success aka resolved promise handling
-    // 💡 we have return data or promise so that we can keep chaining the promises, here we are returning data
+    // we have return data or promise so that we can keep chaining the promises, here we are returning data
     console.log(orderId);
     return orderId;
   })
   .then(function (orderId) {
     // Promise chaining
-    // 💡 we will make sure that `proceedToPayment` returns a promise too
+    // we will make sure that `proceedToPayment` returns a promise too
     return proceedToPayment(orderId);
   })
   .then(function (paymentInfo) {
@@ -174,7 +174,7 @@ Eg:
 createOrder(cart)
   .then(function (orderId) {
     // ✅ success aka resolved promise handling
-    // 💡 we have return data or promise so that we can keep chaining the promises, here we are returning data
+    // we have return data or promise so that we can keep chaining the promises, here we are returning data
     console.log(orderId);
     return orderId;
   })
@@ -185,7 +185,7 @@ createOrder(cart)
   });
   .then(function (orderId) {
     // Promise chaining
-    // 💡 we will make sure that `proceedToPayment` returns a promise too
+    // we will make sure that `proceedToPayment` returns a promise too
     return proceedToPayment(orderId);
   })
   .then(function (paymentInfo) {

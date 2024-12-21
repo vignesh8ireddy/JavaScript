@@ -1,6 +1,6 @@
 
 ### Q1: What is Closure in Javascript?
-**Ans**: A function along with reference to its outer environment together forms a closure. Or in other words, A Closure is a combination of a function and its lexical scope bundled together.
+A function along with reference to its outer environment together forms a closure. Or in other words, A Closure is a combination of a function and its lexical scope bundled together.
 eg:
 ```js
 function outer() {
@@ -22,9 +22,10 @@ function outer() {
     var a = 10;
     return inner;
 }
-outer()(); // 10
+outer()();
 ```
-**Ans**: Yes, because inner function forms a closure with its outer environment so sequence doesn't matter.
+Yes, because inner function forms a closure with its outer environment so sequence doesn't matter.<br/>
+>Output: 10
 
 ### Q3: Changing var to let, will it make any difference?
 ```js
@@ -35,9 +36,9 @@ function outer() {
     }
     return inner;
 }
-outer()(); // 10
+outer()();
 ```
-**Ans**: It will still behave the same way.
+It will still behave the same way.
 
 ### Q4: Will inner function have the access to outer function argument?
 ```js
@@ -48,9 +49,10 @@ function outer(str) {
     }
     return inner;
 }
-outer("Hello There")(); // 10 "Hello There"
+outer("Hello There")();
 ```
 **Ans**: Inner function will now form closure and will have access to both a and str.
+>Output: 10 "Hello There"
 
 ### Q5: In below code, will inner form closure with **outest**?
 ```js
@@ -65,9 +67,10 @@ function outest() {
     }
     return outer;
 }
-outest()("Hello There")(); // 10 20 "Hello There"
+outest()("Hello There")();
 ```
-**Ans**: Yes, inner will have access to all its outer environment.
+Yes, inner will have access to all its outer environment.
+>Output: 10 20 "Hello There"
 
 ### Q6: Output of below code and explaination?
 ```js
@@ -83,7 +86,7 @@ function outest() {
     return outer;
 }
 let a = 100;
-outest()("Hello There")(); // 10 20 "Hello There"
+outest()("Hello There")();
 ```
 **Ans**: Still the same output, the inner function will have reference to inner a, so conflicting name won't matter here. If it wouldn't have find a inside outer function then it would have went more outer to find a and thus have printed 100. So, it try to resolve variable in scope chain and if a wouldn't have been found it would have given reference error.
 
@@ -157,7 +160,7 @@ counter1.decrementCounter();
 ```
 
 ### Q9: Disadvantage of closure?
-**Ans**: Overconsumption of memory when using closure as everytime as those closed over variables are not garbage collected till program expires.
+Overconsumption of memory when using closure as everytime as those closed over variables are not garbage collected till program expires.
 So when creating many closures, more memory is accumulated and this can create memory leaks if not handled.
 
 **Garbage collector** : Program in JS engine or browser that frees up unused memory. In highlevel languages like C++ or JAVA, garbage collection is left to the programmer, but in JS engine its done implicitly.

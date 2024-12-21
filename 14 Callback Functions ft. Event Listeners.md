@@ -1,7 +1,7 @@
-# Episode 14 : Callback Functions in JS ft. Event Listeners
 
 ### Callback Functions
-* Functions are first class citizens ie. take a function A and pass it to another function B. Here, A is a callback function. So basically I am giving access to function B to call function A. This callback function gives us the access to whole **Asynchronous** world in **Synchronous** world.
+* Functions are first class citizens ie. take a function A and pass it to another function B. Here, A is a callback function. So basically I am giving access to function B to call function A.
+* This callback function gives us the access to whole **Asynchronous** world in **Synchronous** world.
 ```js
 setTimeout(function () {
     console.log("Timer");
@@ -10,7 +10,7 @@ setTimeout(function () {
 
 * JS is a synchronous and single threaded language. But due to callbacks, we can do async things in JS.
 
-* ```js
+```js
   setTimeout(function () {
     console.log("timer");
   }, 5000);
@@ -74,15 +74,9 @@ setTimeout(function () {
         }
         attachEventList();
         ```
-        ![Event Listerner Demo](/assets/event.jpg)
 
 ### Garbage Collection and removeEventListeners
 
 * Event listeners are heavy as they form closures. So even when call stack is empty, EventListener won't free up memory allocated to count as it doesn't know when it may need count again. So we remove event listeners when we don't need them (garbage collected) onClick, onHover, onScroll all in a page can slow it down heavily.
 
 <hr>
-
-Watch Live On Youtube below:
-
-<a href="https://www.youtube.com/watch?v=btj35dh3_U8&ab_channel=AkshaySaini" target="_blank"><img src="https://img.youtube.com/vi/btj35dh3_U8/0.jpg" width="750"
-alt="Callback Functions in JS ft. Event Listeners in JS Youtube Link"/></a>

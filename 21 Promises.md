@@ -117,17 +117,15 @@ user.then(function (data) {
  */
 ```
 
-💡Promise Object are immutable.  
--> Once promise is fulfilled and we have data we can pass here and there and we don't have to worry that someone can mutate that data. So over above we can't directly mutate `user` promise object, we will have to use `.then`
+> *Promise Object are immutable.* <br/>
+Once promise is fulfilled and we have data we can pass here and there and we don't have to worry that someone can mutate that data. So over above we can't directly mutate `user` promise object, we will have to use `.then`
 
 ### Interview Guide
 
-💡What is Promise?  
--> Promise object is a placeholder for certain period of time until we receive value from asynchronous operation.
-
--> A container for a future value.
-
--> **A Promise is an object representing the eventual completion or failure of an asynchronous operation.**
+>What is Promise?  
+<br/>Promise object is a placeholder for certain period of time until we receive value from asynchronous operation.
+<br/>A container for a future value.
+<br/> **A Promise is an object representing the eventual completion or failure of an asynchronous operation.**
 
 We are now done solving one issue of callback i.e. Inversion of Control
 
@@ -145,7 +143,7 @@ createOrder(cart, function (orderId) {
 // And now above code is expanding horizontally and this is called pyramid of doom.
 // Callback hell is ugly and hard to maintain.
 
-// 💡 Promise fixes this issue too using `Promise Chaining`
+// Promise fixes this issue too using `Promise Chaining`
 // Example Below is a Promise Chaining
 createOrder(cart)
   .then(function (orderId) {

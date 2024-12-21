@@ -26,7 +26,7 @@ Outputs:
 
 ## Code Flow in terms of Execution Context
 
-* The Global Execution Context (GEC) is created (the big box with Memory and Code subparts). Also GEC is pushed into Call Stack
+* The Global Execution Context (GEC) is created (by executing the first component i.e memory component). Also GEC is pushed into Call Stack (for the second component, i.e code component)
 
 > Call Stack : GEC
 
@@ -45,9 +45,5 @@ Outputs:
 > Call Stack :[GEC, b()] -> GEC (after printing yet another totally different x value as 100 in console log)
 
 * Finally GEC is deleted and also removed from call stack. Program ends.
-
-* reference:
-
-![Execution Context Phase 1](/assets/function.jpg "Execution Context")
 
 <hr>

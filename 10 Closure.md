@@ -38,12 +38,7 @@
 
 <br>
 
-* ![Closure Explaination](/assets/closure.jpg "Lexical Scope")
-
 - Advantages of Closure:
-
-    Certainly! Let's explore examples for each of the advantages you've
-    mentioned:
 
   1.  **Module Design Pattern**:
       -   The module design pattern allows us to encapsulate related
@@ -155,13 +150,11 @@
           showMessage('Hello, world!', 2000); // Display after 2 seconds
           ```
 
-  These examples demonstrate the power and versatility of closures in
-JavaScript! 🚀
+  These examples demonstrate the power and versatility of closures in JavaScript!
 
 * Disadvantages of Closure:
   * Over consumption of memory
   * Memory Leak
   * Freeze browser
-
 
 <hr>

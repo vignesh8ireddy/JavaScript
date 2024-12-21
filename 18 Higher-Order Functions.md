@@ -1,6 +1,6 @@
 
 ### Q: What is Higher Order Function?
-**Ans**: Higher-order functions are regular functions that take one or more functions as arguments and/or return functions as a value from it. Eg: 
+Higher-order functions are regular functions that take one or more functions as arguments and/or return functions as a value from it. Eg: 
 ```js
 function x() {
     console.log("Hi");

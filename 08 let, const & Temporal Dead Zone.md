@@ -1,4 +1,3 @@
-# Episode 8 : let & const in JS, Temporal Dead Zone
 
 * let and const declarations are hoisted. But its different from **var**
     ```js
@@ -13,6 +12,11 @@
   It looks like let isn't hoisted, **but it is**, let's understand
   * Both a and b are actually initialized as *undefined* in hoisting stage. But var **b** is inside the storage space of GLOBAL, and **a** is in a separate memory object called script, where it can be accessed only after assigning some value to it first ie. one can access 'a' only if it is assigned. Thus, it throws error.
 
+    ```js
+    console.log(nonDeclaredVariable); // ReferenceError: nonDeclaredVariable is not defined
+    console.log(window.nonDeclaredVariable); // undefined
+    ```
+  * When you write window.a, window.y or anything not in window scope, you're specifically asking for the a property(a,y,...) of the window object, whether it exists or not. JavaScript doesn't raise a ReferenceError in this case because it interprets the it as a property access. If it doesn't exist, it simply returns undefined
 <br>
 
 * **Temporal Dead Zone** : Time since when the let variable was hoisted until it is initialized some value. 
@@ -28,10 +32,10 @@
         let a = 100;  //this code is rejected upfront as SyntaxError. (duplicate declaration)
         ------------------
         let a = 10;
-        var a = 100; // this code also rejected upfront as SyntaxError. (can't use same name in same scope)
+        var a = 100; // this code also rejected upfront as SyntaxError. (can't use same name in same block scope)
         ```
 
-* **Let** is a stricter version of **var**. Now, **const** is even more stricter than **let**.
+* **let** is a stricter version of **var**. Now, **const** is even more stricter than **let**.
     ```js
     let a;
     a = 10;

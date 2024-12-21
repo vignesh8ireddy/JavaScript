@@ -63,9 +63,7 @@ console.log(b); // Error, Not Defined
     a() = [b:10, c:{}, [lexical environment pointer pointing to GEC]]
     GEC =  [a:{},[lexical_environment pointer pointing to null]]
     ```
-    ![Lexical Scope Explaination](/assets/lexical.jpg "Lexical Scope")
-    ![Lexical Scope Explaination](/assets/lexical2.jpg "Lexical Scope")
-
+   
 <br>
 
 * So, **Lexical Environment** = local memory + lexical env of its parent. Hence, Lexical Environement is the local memory along with the lexical environment of its parent

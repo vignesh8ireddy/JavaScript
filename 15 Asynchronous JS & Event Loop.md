@@ -4,11 +4,9 @@
 * Browser has JS Engine which has Call Stack which has Global execution context, local execution context etc.
   * But browser has many other superpowers - Local storage space, Timer, place to enter URL, Bluetooth access, Geolocation access and so on.
   * Now JS needs some way to connect the callstack with all these superpowers. This is done using Web APIs.
-  ![Event Loop 1 Demo](/assets/eventloop1.jpg)
 
 ### WebAPIs
 None of the below are part of Javascript! These are extra superpowers that browser has. Browser gives access to JS callstack to use these powers.
-![Event Loop 2 Demo](/assets/eventloop2.jpg)
 
 * setTimeout(), DOM APIs, fetch(), localstorage, console (yes, even console.log is not JS!!), location and so many more.
     * setTimeout() : Timer function
@@ -21,14 +19,14 @@ None of the below are part of Javascript! These are extra superpowers that brows
 
 * Let's undertand the below code image and its explaination:
     ![Event Loop 3 Demo](/assets/eventloop3.jpg)
-    * ```js
+    ```js
       console.log("start");
       setTimeout(function cb() {
           console.log("timer");
       }, 5000);
       console.log("end");
       // start end timer
-      ```
+    ```
     * First a GEC is created and put inside call stack.
     * console.log("Start"); // this calls the console web api (through window) which in turn actually modifies values in console.
     * setTimeout(function cb() { //this calls the setTimeout web api which gives access to timer feature. It stores the callback cb() and starts timer. console.log("Callback");}, 5000);
@@ -42,7 +40,6 @@ Q: How after 5 secs timer is console?
 * cb() cannot simply directly go to callstack to be execeuted. It goes through the callback queue when timer expires.
 * Event loop keep checking the callback queue, and see if it has any element to puts it into call stack. It is like a gate keeper.
 * Once cb() is in callback queue, eventloop pushes it to callstack to run. Console API is used and log printed
-* ![Event Loop 4 Demo](/assets/eventloop4.jpg)
 
 Q: Another example to understand Eventloop & Callback Queue.
 
@@ -50,7 +47,7 @@ See the below Image and code and try to understand the reason:
 ![Event Loop 5 Demo](/assets/eventloop5.jpg)
 Explaination?
 
-* ```js
+ ```js
   console.log("Start"); 
   document. getElementById("btn").addEventListener("click", function cb() { 
     // cb() registered inside webapi environment and event(click) attached to it. i.e. REGISTERING CALLBACK AND ATTACHING EVENT TO IT. 
@@ -64,7 +61,7 @@ Explaination?
 
 Q: Need of callback queue?
 
-**Ans**: Suppose user clciks button x6 times. So 6 cb() are put inside callback queue. Event loop sees if call stack is empty/has space and whether callback queue is not empty(6 elements here). Elements of callback queue popped off, put in callstack, executed and then popped off from call stack.
+Suppose user clciks button x6 times. So 6 cb() are put inside callback queue. Event loop sees if call stack is empty/has space and whether callback queue is not empty(6 elements here). Elements of callback queue popped off, put in callstack, executed and then popped off from call stack.
 
 <br>
 
@@ -79,7 +76,8 @@ fetch("https://api.netflix.com").then(function cbF() {
     console.log("CB Netflix");
 }); // take 2 seconds to bring response
 // millions lines of code
-console.log("End"); 
+console.log("End");
+```
 
 Code Explaination:
 * Same steps for everything before fetch() in above code.
@@ -90,9 +88,8 @@ Code Explaination:
 * Also after expiration of timer, cbT is ready to execute in Callback Queue.
 * Microtask Queue is exactly same as Callback Queue, but it has higher priority. Functions in Microtask Queue are executed earlier than Callback Queue.
 * In console, first Start and End are printed in console. First cbF goes in callstack and "CB Netflix" is printed. cbF popped from callstack. Next cbT is removed from callback Queue, put in Call Stack, "CB Timeout" is printed, and cbT removed from callstack.
-* See below Image for more understanding
-```
-![Event Loop 6 Demo](/assets/eventloop6.jpg)
+
+
 Microtask Priority Visualization
 ![Event Loop 7 Demo](/assets/microtask.gif)
 
